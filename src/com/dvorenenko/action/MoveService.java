@@ -1,7 +1,6 @@
 package com.dvorenenko.action;
 
 import com.dvorenenko.config.FieldSizeConfig;
-import com.dvorenenko.constants.Constants;
 import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.animal.abstracts.Animal;
 import com.dvorenenko.entity.enums.DirectionType;
