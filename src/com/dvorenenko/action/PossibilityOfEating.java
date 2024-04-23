@@ -26,15 +26,6 @@ public class PossibilityOfEating {
     }
 
     @Override
-    public String toString() {
-        return "PossibilityOfEating{" +
-                "from='" + from + '\'' +
-                ", to='" + to + '\'' +
-                ", percent=" + percent +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

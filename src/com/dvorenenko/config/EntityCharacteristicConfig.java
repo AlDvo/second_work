@@ -25,8 +25,8 @@ public class EntityCharacteristicConfig {
         return characteristicMapConfig;
     }
 
-    private static Map<EntityType, Entity> getEntityTypeEntityValueToMap(ObjectMapper objectMapper, File file) {
-        Entity temp;
+    private Map<EntityType, Entity> getEntityTypeEntityValueToMap(ObjectMapper objectMapper, File file) {
+        Entity entity;
         Map<EntityType, Entity> characteristicMapConfig = new HashMap<>();
 
         for (EntityType value : EntityType.values()) {
@@ -39,12 +39,12 @@ public class EntityCharacteristicConfig {
                 int maxQtyOnCell = specificObject.get("maxQtyOnCell").asInt();
 
                 Constructor<?> constructor = value.getClazz().getConstructor(double.class, int.class, double.class, int.class);
-                temp = (Entity) constructor.newInstance(weight, speed, mealKg, maxQtyOnCell);
+                entity = (Entity) constructor.newInstance(weight, speed, mealKg, maxQtyOnCell);
             } catch (IOException | NoSuchMethodException | InvocationTargetException | InstantiationException |
                      IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
-            characteristicMapConfig.put(value, temp);
+            characteristicMapConfig.put(value, entity);
         }
         return characteristicMapConfig;
     }

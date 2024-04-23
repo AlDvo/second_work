@@ -1,6 +1,7 @@
 package com.dvorenenko.config;
 
 import com.dvorenenko.action.PossibilityOfEating;
+import com.dvorenenko.constants.Constants;
 import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.enums.EntityType;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +18,7 @@ public class PossibilityOfEatingConfig {
 
     private Map<Map<Entity, Entity>, Long> possibilityOfEatingConfig;
 
-    public PossibilityOfEatingConfig(ObjectMapper objectMapper, String pathToJson) throws RuntimeException {
+    public PossibilityOfEatingConfig(ObjectMapper objectMapper, String pathToJson){
         File file = new File(pathToJson);
         this.possibilityOfEatingConfig = getPossibilityOfEatingConfigToMap(objectMapper, file);
     }
@@ -28,12 +29,12 @@ public class PossibilityOfEatingConfig {
 
     private Map<Map<Entity, Entity>, Long> getPossibilityOfEatingConfigToMap(ObjectMapper objectMapper, File file) {
 
-        PossibilityOfEating[] possibilityOfEatings = extractedPossibility(objectMapper, file);
+        PossibilityOfEating[] possibilityOfEating = extractedPossibility(objectMapper, file);
 
         Map<Map<Entity, Entity>, Long> possibilityOfEatingConfig = new HashMap<>();
         Entity entityHunter = null;
         Entity entityHunted = null;
-        for (PossibilityOfEating possibility : possibilityOfEatings) {
+        for (PossibilityOfEating possibility : possibilityOfEating) {
             for (EntityType value : EntityType.values()) {
                 if (possibility.getFrom().equals(value.getType())) {
                     entityHunter = getEntity(value);
@@ -50,12 +51,13 @@ public class PossibilityOfEatingConfig {
 
     private Entity getEntity(EntityType value) {
         Entity entity;
-        Constructor<?> entityConstr = null;
+        Constructor<?> entityConstructor;
         try {
-            entityConstr = value.getClazz().getConstructor();
-            entity = (Entity) entityConstr.newInstance();
+            entityConstructor = value.getClazz().getConstructor();
+            entity = (Entity) entityConstructor.newInstance();
         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
                  IllegalAccessException e) {
+            System.out.println(Constants.ERROR_MAKE_ENTITY);
             throw new RuntimeException(e);
         }
         return entity;
@@ -66,6 +68,7 @@ public class PossibilityOfEatingConfig {
         try {
             possibility = objectMapper.readValue(file, PossibilityOfEating[].class);
         } catch (IOException e) {
+            System.out.println(Constants.ERROR_PARSING);
             throw new RuntimeException(e);
         }
         return possibility;

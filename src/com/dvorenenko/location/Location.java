@@ -6,7 +6,12 @@ import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.enums.EntityType;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 
 public class Location {
 
@@ -24,7 +29,7 @@ public class Location {
         return island;
     }
 
-    public Map<FieldSizeConfig, List<Entity>> fillLocationByEntity(Random random, EntityCharacteristicConfig characteristicConfig, FieldSizeConfig fieldSizeConfig) {
+    private Map<FieldSizeConfig, List<Entity>> fillLocationByEntity(Random random, EntityCharacteristicConfig characteristicConfig, FieldSizeConfig fieldSizeConfig) {
         Map<EntityType, Entity> characteristicMapConfig = characteristicConfig.getCharacteristicMapConfig();
         Map<FieldSizeConfig, List<Entity>> island = makeLocationWithoutAnimal(fieldSizeConfig);
 

@@ -5,9 +5,14 @@ import com.dvorenenko.constants.Constants;
 import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.animal.abstracts.Animal;
 import com.dvorenenko.entity.enums.DirectionType;
+import com.dvorenenko.itteration.ChoseVariable;
 import com.dvorenenko.location.Location;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 
 public class MoveService {
@@ -30,9 +35,9 @@ public class MoveService {
         return new Location(newLocation);
     }
 
-    private boolean checkLimitOfAnimalInCell(Map.Entry<FieldSizeConfig, List<Entity>> listEntry, Entity entity) {
+    private boolean checkLimitOfAnimalInCell(List<Entity> listEntry, Entity entity) {
         int maxQtyOnCell = entity.getMaxQtyOnCell();
-        long count = listEntry.getValue().stream().filter(m -> m.getClass().equals(entity.getClass())).count();
+        long count = listEntry.stream().filter(m -> m.getClass().equals(entity.getClass())).count();
 
         return maxQtyOnCell > count;
     }
@@ -40,33 +45,39 @@ public class MoveService {
     private Map<FieldSizeConfig, List<Entity>> makeLocationWithoutAnimal() {
         Map<FieldSizeConfig, List<Entity>> newLocation = new HashMap<>();
 
-        for (int i = 0; i < Constants.LOCATION_HEIGHT; i++) {
-            for (int j = 0; j < Constants.LOCATION_WEIGHT; j++) {
+        for (int i = 0; i < ChoseVariable.LOCATION_HEIGHT; i++) {
+            for (int j = 0; j < ChoseVariable.LOCATION_WEIGHT; j++) {
                 newLocation.put(new FieldSizeConfig(i, j), new ArrayList<>());
             }
         }
         return newLocation;
     }
 
-    private FieldSizeConfig newKeyAfterMoveEntity(DirectionType directionType, Map.Entry<FieldSizeConfig, List<Entity>> listEntry, Entity entity) {
-        if (directionType == DirectionType.DOWN && checkLimitOfAnimalInCell(listEntry, entity)) {
+    private FieldSizeConfig newKeyAfterMoveEntity(DirectionType directionType,
+                                                  Map.Entry<FieldSizeConfig, List<Entity>> listEntry,
+                                                  Entity entity) {
+
+        if (directionType == DirectionType.DOWN && checkLimitOfAnimalInCell(listEntry.getValue(), entity)) {
             return new FieldSizeConfig(listEntry.getKey().getHeight() + entity.getSpeed(), listEntry.getKey().getWeight());
-        } else if (directionType == DirectionType.UP && checkLimitOfAnimalInCell(listEntry, entity)) {
+        } else if (directionType == DirectionType.UP && checkLimitOfAnimalInCell(listEntry.getValue(), entity)) {
             return new FieldSizeConfig(listEntry.getKey().getHeight() - entity.getSpeed(), listEntry.getKey().getWeight());
-        } else if (directionType == DirectionType.LEFT && checkLimitOfAnimalInCell(listEntry, entity)) {
+        } else if (directionType == DirectionType.LEFT && checkLimitOfAnimalInCell(listEntry.getValue(), entity)) {
             return new FieldSizeConfig(listEntry.getKey().getHeight(), listEntry.getKey().getWeight() - entity.getSpeed());
-        } else if (directionType == DirectionType.RIGHT && checkLimitOfAnimalInCell(listEntry, entity)) {
+        } else if (directionType == DirectionType.RIGHT && checkLimitOfAnimalInCell(listEntry.getValue(), entity)) {
             return new FieldSizeConfig(listEntry.getKey().getHeight(), listEntry.getKey().getWeight() + entity.getSpeed());
         }
         return new FieldSizeConfig(listEntry.getKey().getHeight(), listEntry.getKey().getWeight());
     }
 
-    private boolean checkCanAnimalMoveInLocation(FieldSizeConfig fieldSizeConfig, Entity entity, DirectionType directionType) {
+    private boolean checkCanAnimalMoveInLocation(FieldSizeConfig fieldSizeConfig,
+                                                 Entity entity,
+                                                 DirectionType directionType) {
+
         boolean animalWhoNotMoveYet = entity instanceof Animal && entity.isAlive();
         boolean checkCanMoveUp = directionType == DirectionType.UP && fieldSizeConfig.getHeight() - entity.getSpeed() >= 0;
-        boolean checkCanMoveDown = directionType == DirectionType.DOWN && fieldSizeConfig.getHeight() + entity.getSpeed() < Constants.LOCATION_HEIGHT;
+        boolean checkCanMoveDown = directionType == DirectionType.DOWN && fieldSizeConfig.getHeight() + entity.getSpeed() < ChoseVariable.LOCATION_HEIGHT;
         boolean checkCanMoveLeft = directionType == DirectionType.LEFT && fieldSizeConfig.getWeight() - entity.getSpeed() >= 0;
-        boolean checkCanMoveRight = directionType == DirectionType.RIGHT && fieldSizeConfig.getWeight() + entity.getSpeed() < Constants.LOCATION_WEIGHT;
+        boolean checkCanMoveRight = directionType == DirectionType.RIGHT && fieldSizeConfig.getWeight() + entity.getSpeed() < ChoseVariable.LOCATION_WEIGHT;
 
         if (animalWhoNotMoveYet && checkCanMoveUp) {
             return true;

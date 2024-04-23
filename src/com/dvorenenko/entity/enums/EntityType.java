@@ -1,8 +1,8 @@
 package com.dvorenenko.entity.enums;
 
-import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.animal.herbivore.*;
 import com.dvorenenko.entity.animal.predator.Bear;
+import com.dvorenenko.entity.animal.predator.Boa;
 import com.dvorenenko.entity.animal.predator.Eagle;
 import com.dvorenenko.entity.animal.predator.Fox;
 import com.dvorenenko.entity.animal.predator.Wolf;
@@ -21,7 +21,7 @@ public enum EntityType {
     RABBIT("rabbit", Rabbit.class),
     SHEEP("sheep", Sheep.class),
     BEAR("bear", Bear.class),
-    BOA("boa", Boar.class),
+    BOA("boa", Boa.class),
     EAGLE("eagle", Eagle.class),
     FOX("fox", Fox.class),
     WOLF("wolf" , Wolf.class);
@@ -40,9 +40,5 @@ public enum EntityType {
 
     public Class getClazz() {
         return clazz;
-    }
-
-    EntityType(String type) {
-        this.type = type;
     }
 }
