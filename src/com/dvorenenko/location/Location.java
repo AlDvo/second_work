@@ -2,10 +2,10 @@ package com.dvorenenko.location;
 
 import com.dvorenenko.config.EntityCharacteristicConfig;
 import com.dvorenenko.config.FieldSizeConfig;
+import com.dvorenenko.config.MakeClassByReflection;
 import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.enums.EntityType;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,32 +32,22 @@ public class Location {
     private Map<FieldSizeConfig, List<Entity>> fillLocationByEntity(Random random, EntityCharacteristicConfig characteristicConfig, FieldSizeConfig fieldSizeConfig) {
         Map<EntityType, Entity> characteristicMapConfig = characteristicConfig.getCharacteristicMapConfig();
         Map<FieldSizeConfig, List<Entity>> island = makeLocationWithoutAnimal(fieldSizeConfig);
+        MakeClassByReflection makeClassByReflection = new MakeClassByReflection();
 
         for (Map.Entry<EntityType, Entity> entityTypeEntityEntry : characteristicMapConfig.entrySet()) {
-            addEveryAnimalOnLocationCell(random, entityTypeEntityEntry.getValue(), island);
+            addEveryAnimalOnLocationCell(random, entityTypeEntityEntry.getValue(), island, makeClassByReflection);
         }
         return island;
     }
 
-    private void addEveryAnimalOnLocationCell(Random random, Entity entityTypeEntityEntry, Map<FieldSizeConfig, List<Entity>> island) {
+    private void addEveryAnimalOnLocationCell(Random random, Entity entityTypeEntityEntry, Map<FieldSizeConfig, List<Entity>> island, MakeClassByReflection makeClassByReflection) {
         for (Map.Entry<FieldSizeConfig, List<Entity>> listEntry : island.entrySet()) {
             int maxCount = random.nextInt(entityTypeEntityEntry.getMaxQtyOnCell());
             for (int i = 0; i < maxCount; i++) {
-                Entity entity = getEntityFromCharacteristicConfig(entityTypeEntityEntry);
+                Entity entity = makeClassByReflection.MakeClassByEntity(entityTypeEntityEntry);
                 listEntry.getValue().add(entity);
             }
         }
-    }
-
-    private Entity getEntityFromCharacteristicConfig(Entity entityTypeEntityEntry) {
-        Entity entity;
-        try {
-            entity = entityTypeEntityEntry.getClass().getConstructor().newInstance();
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                 NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
-        return entity;
     }
 
     private Map<FieldSizeConfig, List<Entity>> makeLocationWithoutAnimal(FieldSizeConfig fieldSizeConfig) {

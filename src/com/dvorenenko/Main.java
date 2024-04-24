@@ -3,9 +3,10 @@ package com.dvorenenko;
 import com.dvorenenko.action.*;
 import com.dvorenenko.config.EntityCharacteristicConfig;
 import com.dvorenenko.config.FieldSizeConfig;
+import com.dvorenenko.config.MakeClassByReflection;
 import com.dvorenenko.config.PossibilityOfEatingConfig;
-import com.dvorenenko.itteration.ChoseVariable;
-import com.dvorenenko.itteration.OneDay;
+import com.dvorenenko.itteration.ChangeVariableService;
+import com.dvorenenko.itteration.OneDaySimulationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Random;
@@ -13,22 +14,23 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        FieldSizeConfig fieldSizeConfig = new FieldSizeConfig(ChoseVariable.LOCATION_HEIGHT, ChoseVariable.LOCATION_WEIGHT);
+        FieldSizeConfig fieldSizeConfig = new FieldSizeConfig(ChangeVariableService.LOCATION_HEIGHT, ChangeVariableService.LOCATION_WEIGHT);
         Random random = new Random();
         ObjectMapper objectMapper = new ObjectMapper();
+        MakeClassByReflection makeClassByReflection = new MakeClassByReflection();
         EntityCharacteristicConfig characteristicConfig = new EntityCharacteristicConfig(objectMapper, "resources/entity_characteristic.json");
-        PossibilityOfEatingConfig possibilityOfEatingConfig = new PossibilityOfEatingConfig(objectMapper, "resources/possibility_of_eating.json");
+        PossibilityOfEatingConfig possibilityOfEatingConfig = new PossibilityOfEatingConfig(objectMapper, "resources/possibility_of_eating.json", makeClassByReflection);
         ChooseDirectionService chooseDirectionService = new ChooseDirectionService();
         EatingService eat = new EatingService();
         DecreaseAnimalService decreaseAnimalService = new DecreaseAnimalService();
         MultiplyService multiplyService = new MultiplyService();
         MoveService moveService = new MoveService();
-        ChoseVariable choseVariable = new ChoseVariable();
+        ChangeVariableService changeVariableService = new ChangeVariableService();
 
 
 
-        OneDay oneDay = new OneDay();
-        oneDay.passedOneDay(random,
+        OneDaySimulationService oneDaySimulationService = new OneDaySimulationService();
+        oneDaySimulationService.passedOneDay(random,
                 characteristicConfig,
                 fieldSizeConfig,
                 possibilityOfEatingConfig,
@@ -36,7 +38,8 @@ public class Main {
                 eat,
                 multiplyService,
                 moveService,
-                chooseDirectionService);
+                chooseDirectionService,
+                makeClassByReflection);
 
     }
 }

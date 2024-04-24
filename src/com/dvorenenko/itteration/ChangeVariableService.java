@@ -2,16 +2,16 @@ package com.dvorenenko.itteration;
 
 import java.util.Scanner;
 
-public class ChoseVariable {
+public class ChangeVariableService {
     public static int LOCATION_HEIGHT = 10;
     public static int LOCATION_WEIGHT = 10;
     public static int LOWER_LIMIT_SATURATION = 3;
 
-    public ChoseVariable() {
-        userChoseVariable();
+    public ChangeVariableService() {
+        userChangeVariable();
     }
 
-    private void userChoseVariable(){
+    private void userChangeVariable(){
         System.out.println("Хотите указать свои переменные - y/n");
         Scanner scan =  new Scanner(System.in);
         String userChose = scan.nextLine();

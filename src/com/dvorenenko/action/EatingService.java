@@ -1,16 +1,15 @@
 package com.dvorenenko.action;
 
 import com.dvorenenko.config.FieldSizeConfig;
+import com.dvorenenko.config.MakeClassByReflection;
 import com.dvorenenko.config.PossibilityOfEatingConfig;
 import com.dvorenenko.constants.Constants;
 import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.animal.abstracts.Animal;
 import com.dvorenenko.entity.enums.EntityType;
-import com.dvorenenko.itteration.ChoseVariable;
+import com.dvorenenko.itteration.ChangeVariableService;
 import com.dvorenenko.location.Location;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,13 +18,12 @@ import java.util.Random;
 
 public class EatingService {
 
-    public Location eat(Location location, Random random, PossibilityOfEatingConfig possibilityOfEatingConfig) {
-
+    public Location eat(Location location, Random random, PossibilityOfEatingConfig possibilityOfEatingConfig, MakeClassByReflection makeClassByReflection) {
         for (Map.Entry<FieldSizeConfig, List<Entity>> fieldSizeConfigListEntry : location.getIsland().entrySet()) {
             for (Entity entity : fieldSizeConfigListEntry.getValue()) {
                 long probabilityWeTake = random.nextLong(100);
                 if (entity instanceof Animal) {
-                    predatorEatHerbivore(fieldSizeConfigListEntry.getValue(), entity, probabilityWeTake, possibilityOfEatingConfig);
+                    predatorEatHerbivore(fieldSizeConfigListEntry.getValue(), entity, probabilityWeTake, possibilityOfEatingConfig, makeClassByReflection);
                 }
             }
         }
@@ -35,9 +33,10 @@ public class EatingService {
     private void predatorEatHerbivore(List<Entity> fieldSizeConfigListEntry,
                                       Entity entity,
                                       long probabilityWeTake,
-                                      PossibilityOfEatingConfig possibilityOfEatingConfig) {
+                                      PossibilityOfEatingConfig possibilityOfEatingConfig,
+                                      MakeClassByReflection makeClassByReflection) {
 
-        Entity entityHunted = getAnimalWhomPredatorCanEat(fieldSizeConfigListEntry, entity, probabilityWeTake, possibilityOfEatingConfig);
+        Entity entityHunted = getAnimalWhomPredatorCanEat(fieldSizeConfigListEntry, entity, probabilityWeTake, possibilityOfEatingConfig, makeClassByReflection);
         if (entityHunted != null) {
             setIsLiveFalseForEntity(fieldSizeConfigListEntry, entityHunted.getClass());
         } else {
@@ -49,16 +48,17 @@ public class EatingService {
     private Entity getAnimalWhomPredatorCanEat(List<Entity> fieldSizeConfigListEntry,
                                                Entity entity,
                                                long probabilityWeTake,
-                                               PossibilityOfEatingConfig possibilityOfEatingConfig) {
+                                               PossibilityOfEatingConfig possibilityOfEatingConfig,
+                                               MakeClassByReflection makeClassByReflection) {
 
         Entity entityHunted = null;
         Map<Entity, Entity> hunterHunted = new HashMap<>();
         long maxValuePossibility = 100;
 
-        Entity entityHunterForJsonConfig = getEntityForPossibilityOfEatingConfigToMap(entity);
+        Entity entityHunterForJsonConfig = makeClassByReflection.MakeClassByEntity(entity);
 
         for (EntityType entityType : EntityType.values()) {
-            Entity entityHuntedForJsonConfig = getEntityForPossibilityOfEatingConfigToMap(entityType);
+            Entity entityHuntedForJsonConfig = makeClassByReflection.MakeClassByEntityType(entityType);
             hunterHunted.put(entityHunterForJsonConfig, entityHuntedForJsonConfig);
 
             Long possibilityOfEating = getPossibilityOfEating(possibilityOfEatingConfig, entityHunterForJsonConfig, entityHuntedForJsonConfig, hunterHunted);
@@ -90,31 +90,8 @@ public class EatingService {
         entity.setAlive(false);
     }
 
-    private Entity getEntityForPossibilityOfEatingConfigToMap(Entity entityHunter) {
-        Entity entityHunterForJsonConfig;
-        try {
-            Constructor<? extends Entity> constructorHunter = entityHunter.getClass().getConstructor();
-            entityHunterForJsonConfig = constructorHunter.newInstance();
-        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                 InvocationTargetException e) {
-            throw new RuntimeException(e);
-        }
-        return entityHunterForJsonConfig;
-    }
-
-    private Entity getEntityForPossibilityOfEatingConfigToMap(EntityType entityType) {
-        Entity entityHuntedForJsonConfig;
-        try {
-            entityHuntedForJsonConfig = (Entity) entityType.getClazz().getConstructor().newInstance();
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                 NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
-        return entityHuntedForJsonConfig;
-    }
-
     private void checkLowerLimitSaturation(Entity entity) {
-        if (entity.getCountOfHunger() > ChoseVariable.LOWER_LIMIT_SATURATION) {
+        if (entity.getCountOfHunger() > ChangeVariableService.LOWER_LIMIT_SATURATION) {
             entity.setAlive(false);
         }
     }

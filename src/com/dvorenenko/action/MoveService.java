@@ -4,7 +4,7 @@ import com.dvorenenko.config.FieldSizeConfig;
 import com.dvorenenko.entity.Entity;
 import com.dvorenenko.entity.animal.abstracts.Animal;
 import com.dvorenenko.entity.enums.DirectionType;
-import com.dvorenenko.itteration.ChoseVariable;
+import com.dvorenenko.itteration.ChangeVariableService;
 import com.dvorenenko.location.Location;
 
 import java.util.ArrayList;
@@ -44,8 +44,8 @@ public class MoveService {
     private Map<FieldSizeConfig, List<Entity>> makeLocationWithoutAnimal() {
         Map<FieldSizeConfig, List<Entity>> newLocation = new HashMap<>();
 
-        for (int i = 0; i < ChoseVariable.LOCATION_HEIGHT; i++) {
-            for (int j = 0; j < ChoseVariable.LOCATION_WEIGHT; j++) {
+        for (int i = 0; i < ChangeVariableService.LOCATION_HEIGHT; i++) {
+            for (int j = 0; j < ChangeVariableService.LOCATION_WEIGHT; j++) {
                 newLocation.put(new FieldSizeConfig(i, j), new ArrayList<>());
             }
         }
@@ -74,9 +74,9 @@ public class MoveService {
 
         boolean animalWhoNotMoveYet = entity instanceof Animal && entity.isAlive();
         boolean checkCanMoveUp = directionType == DirectionType.UP && fieldSizeConfig.getHeight() - entity.getSpeed() >= 0;
-        boolean checkCanMoveDown = directionType == DirectionType.DOWN && fieldSizeConfig.getHeight() + entity.getSpeed() < ChoseVariable.LOCATION_HEIGHT;
+        boolean checkCanMoveDown = directionType == DirectionType.DOWN && fieldSizeConfig.getHeight() + entity.getSpeed() < ChangeVariableService.LOCATION_HEIGHT;
         boolean checkCanMoveLeft = directionType == DirectionType.LEFT && fieldSizeConfig.getWeight() - entity.getSpeed() >= 0;
-        boolean checkCanMoveRight = directionType == DirectionType.RIGHT && fieldSizeConfig.getWeight() + entity.getSpeed() < ChoseVariable.LOCATION_WEIGHT;
+        boolean checkCanMoveRight = directionType == DirectionType.RIGHT && fieldSizeConfig.getWeight() + entity.getSpeed() < ChangeVariableService.LOCATION_WEIGHT;
 
         if (animalWhoNotMoveYet && checkCanMoveUp) {
             return true;

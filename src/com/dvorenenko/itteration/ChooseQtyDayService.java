@@ -4,11 +4,11 @@ import com.dvorenenko.constants.Constants;
 
 import java.util.Scanner;
 
-public class ChoseQtyDay {
+public class ChooseQtyDayService {
 
     private int day;
 
-    public ChoseQtyDay() {
+    public ChooseQtyDayService() {
         this.day = choseDay();
     }
 

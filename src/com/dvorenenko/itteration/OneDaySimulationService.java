@@ -7,20 +7,21 @@ import com.dvorenenko.action.MoveService;
 import com.dvorenenko.action.MultiplyService;
 import com.dvorenenko.config.EntityCharacteristicConfig;
 import com.dvorenenko.config.FieldSizeConfig;
+import com.dvorenenko.config.MakeClassByReflection;
 import com.dvorenenko.config.PossibilityOfEatingConfig;
 import com.dvorenenko.location.Location;
 
 import java.util.Random;
 
-public class OneDay {
+public class OneDaySimulationService {
     private int day;
 
-    public OneDay() {
+    public OneDaySimulationService() {
         this.day = getDay();
     }
 
     public int getDay() {
-        ChoseQtyDay day = new ChoseQtyDay();
+        ChooseQtyDayService day = new ChooseQtyDayService();
         return day.getDay();
     }
 
@@ -32,14 +33,15 @@ public class OneDay {
                              EatingService eat,
                              MultiplyService multiplyService,
                              MoveService moveService,
-                             ChooseDirectionService chooseDirectionService) {
+                             ChooseDirectionService chooseDirectionService,
+                             MakeClassByReflection makeClassByReflection) {
 
         Location location = new Location(random, characteristicConfig, fieldSizeConfig);
 
         for (int i = 0; i < day; i++) {
-            location = eat.eat(location, random, possibilityOfEatingConfig);
+            location = eat.eat(location, random, possibilityOfEatingConfig, makeClassByReflection);
             location = decreaseAnimalService.decreaseAnimalOnLocation(location);
-            location = multiplyService.multiplynimalOnLocation(location, characteristicConfig);
+            location = multiplyService.multiplynimalOnLocation(location, characteristicConfig, makeClassByReflection);
             location = moveService.move(location, random, chooseDirectionService);
         }
     }

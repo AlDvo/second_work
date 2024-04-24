@@ -8,8 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -18,17 +16,16 @@ public class PossibilityOfEatingConfig {
 
     private Map<Map<Entity, Entity>, Long> possibilityOfEatingConfig;
 
-    public PossibilityOfEatingConfig(ObjectMapper objectMapper, String pathToJson){
+    public PossibilityOfEatingConfig(ObjectMapper objectMapper, String pathToJson, MakeClassByReflection makeClassByReflection){
         File file = new File(pathToJson);
-        this.possibilityOfEatingConfig = getPossibilityOfEatingConfigToMap(objectMapper, file);
+        this.possibilityOfEatingConfig = getPossibilityOfEatingConfigToMap(objectMapper, file, makeClassByReflection);
     }
 
     public Map<Map<Entity, Entity>, Long> getPossibilityOfEatingConfigToMap() {
         return possibilityOfEatingConfig;
     }
 
-    private Map<Map<Entity, Entity>, Long> getPossibilityOfEatingConfigToMap(ObjectMapper objectMapper, File file) {
-
+    private Map<Map<Entity, Entity>, Long> getPossibilityOfEatingConfigToMap(ObjectMapper objectMapper, File file, MakeClassByReflection makeClassByReflection) {
         PossibilityOfEating[] possibilityOfEating = extractedPossibility(objectMapper, file);
 
         Map<Map<Entity, Entity>, Long> possibilityOfEatingConfig = new HashMap<>();
@@ -37,9 +34,9 @@ public class PossibilityOfEatingConfig {
         for (PossibilityOfEating possibility : possibilityOfEating) {
             for (EntityType value : EntityType.values()) {
                 if (possibility.getFrom().equals(value.getType())) {
-                    entityHunter = getEntity(value);
+                    entityHunter = makeClassByReflection.MakeClassByEntityType(value);
                 } else if (possibility.getTo().equals(value.getType())) {
-                    entityHunted = getEntity(value);
+                    entityHunted = makeClassByReflection.MakeClassByEntityType(value);
                 }
             }
             Map<Entity, Entity> entity = new HashMap<>();
@@ -47,20 +44,6 @@ public class PossibilityOfEatingConfig {
             possibilityOfEatingConfig.put(entity, possibility.getPercent());
         }
         return possibilityOfEatingConfig;
-    }
-
-    private Entity getEntity(EntityType value) {
-        Entity entity;
-        Constructor<?> entityConstructor;
-        try {
-            entityConstructor = value.getClazz().getConstructor();
-            entity = (Entity) entityConstructor.newInstance();
-        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
-                 IllegalAccessException e) {
-            System.out.println(Constants.ERROR_MAKE_ENTITY);
-            throw new RuntimeException(e);
-        }
-        return entity;
     }
 
     private PossibilityOfEating[] extractedPossibility(ObjectMapper objectMapper, File file) {
