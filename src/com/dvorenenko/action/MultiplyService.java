@@ -51,8 +51,12 @@ public class MultiplyService {
                                         MakeClassByReflection makeClassByReflection) {
 
         for (int i = 0; i < quantityCoupleOfAnimal; i++) {
-            Entity newAnimal = makeClassByReflection.makeClassByEntityType(entityType);
             int maxQuantityOnCell = entityCharacteristicConfig.getCharacteristicMapConfig().get(entityType).getMaxQuantityOnCell();
+            double weight = entityCharacteristicConfig.getCharacteristicMapConfig().get(entityType).getWeight();
+            int speed = entityCharacteristicConfig.getCharacteristicMapConfig().get(entityType).getSpeed();
+            double mealKg = entityCharacteristicConfig.getCharacteristicMapConfig().get(entityType).getMealKg();
+
+            Entity newAnimal = makeClassByReflection.makeClassByEntityType(entityType, weight, speed, mealKg, maxQuantityOnCell);
             if (countEntityType < maxQuantityOnCell) {
                 listEntry.add(newAnimal);
             }

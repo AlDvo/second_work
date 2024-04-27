@@ -156,11 +156,10 @@ public class EatingService {
     }
 
     private EntityType getEntityTypeByEntity(Entity entity) {
-        EntityType entityType = Arrays.stream(EntityType.values()).
+        return Arrays.stream(EntityType.values()).
                 filter(value -> value.getType().equals(entity.getClass().getSimpleName().toLowerCase())).
                 findFirst().
                 orElse(null);
-        return entityType;
     }
 
 }
