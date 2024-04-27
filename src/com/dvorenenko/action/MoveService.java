@@ -35,10 +35,12 @@ public class MoveService {
     }
 
     private boolean checkLimitOfAnimalInCell(List<Entity> listEntry, Entity entity) {
-        int maxQtyOnCell = entity.getMaxQtyOnCell();
-        long count = listEntry.stream().filter(m -> m.getClass().equals(entity.getClass())).count();
+        int maxQuantityOnCell = entity.getMaxQuantityOnCell();
+        long count = listEntry.stream().
+                filter(m -> m.getClass().
+                        equals(entity.getClass())).count();
 
-        return maxQtyOnCell > count;
+        return maxQuantityOnCell > count;
     }
 
     private Map<FieldSizeConfig, List<Entity>> makeLocationWithoutAnimal() {
@@ -73,10 +75,10 @@ public class MoveService {
                                                  DirectionType directionType) {
 
         boolean animalWhoNotMoveYet = entity instanceof Animal && entity.isAlive();
-        boolean checkCanMoveUp = directionType == DirectionType.UP && fieldSizeConfig.getHeight() - entity.getSpeed() >= 0;
-        boolean checkCanMoveDown = directionType == DirectionType.DOWN && fieldSizeConfig.getHeight() + entity.getSpeed() < ChangeVariableService.LOCATION_HEIGHT;
-        boolean checkCanMoveLeft = directionType == DirectionType.LEFT && fieldSizeConfig.getWeight() - entity.getSpeed() >= 0;
-        boolean checkCanMoveRight = directionType == DirectionType.RIGHT && fieldSizeConfig.getWeight() + entity.getSpeed() < ChangeVariableService.LOCATION_WEIGHT;
+        boolean checkCanMoveUp = isCheckCanMoveUp(fieldSizeConfig, entity, directionType);
+        boolean checkCanMoveDown = isCheckCanMoveDown(fieldSizeConfig, entity, directionType);
+        boolean checkCanMoveLeft = isCheckCanMoveLeft(fieldSizeConfig, entity, directionType);
+        boolean checkCanMoveRight = isCheckCanMoveRight(fieldSizeConfig, entity, directionType);
 
         if (animalWhoNotMoveYet && checkCanMoveUp) {
             return true;
@@ -89,5 +91,21 @@ public class MoveService {
         } else {
             return false;
         }
+    }
+
+    private boolean isCheckCanMoveRight(FieldSizeConfig fieldSizeConfig, Entity entity, DirectionType directionType) {
+        return directionType == DirectionType.RIGHT && fieldSizeConfig.getWeight() + entity.getSpeed() < ChangeVariableService.LOCATION_WEIGHT;
+    }
+
+    private boolean isCheckCanMoveLeft(FieldSizeConfig fieldSizeConfig, Entity entity, DirectionType directionType) {
+        return directionType == DirectionType.LEFT && fieldSizeConfig.getWeight() - entity.getSpeed() >= 0;
+    }
+
+    private boolean isCheckCanMoveDown(FieldSizeConfig fieldSizeConfig, Entity entity, DirectionType directionType) {
+        return directionType == DirectionType.DOWN && fieldSizeConfig.getHeight() + entity.getSpeed() < ChangeVariableService.LOCATION_HEIGHT;
+    }
+
+    private boolean isCheckCanMoveUp(FieldSizeConfig fieldSizeConfig, Entity entity, DirectionType directionType) {
+        return directionType == DirectionType.UP && fieldSizeConfig.getHeight() - entity.getSpeed() >= 0;
     }
 }

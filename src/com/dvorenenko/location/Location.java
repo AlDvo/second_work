@@ -42,9 +42,16 @@ public class Location {
 
     private void addEveryAnimalOnLocationCell(Random random, Entity entityTypeEntityEntry, Map<FieldSizeConfig, List<Entity>> island, MakeClassByReflection makeClassByReflection) {
         for (Map.Entry<FieldSizeConfig, List<Entity>> listEntry : island.entrySet()) {
-            int maxCount = random.nextInt(entityTypeEntityEntry.getMaxQtyOnCell());
+
+            int maxCount = random.nextInt(entityTypeEntityEntry.getMaxQuantityOnCell());
+
+            double weight = entityTypeEntityEntry.getWeight();
+            int speed = entityTypeEntityEntry.getSpeed();
+            double mealKg = entityTypeEntityEntry.getMealKg();
+            int maxQuantityOnCell = entityTypeEntityEntry.getMaxQuantityOnCell();
+
             for (int i = 0; i < maxCount; i++) {
-                Entity entity = makeClassByReflection.MakeClassByEntity(entityTypeEntityEntry);
+                Entity entity = makeClassByReflection.makeClassByEntity(entityTypeEntityEntry, weight, speed, mealKg, maxQuantityOnCell);
                 listEntry.getValue().add(entity);
             }
         }

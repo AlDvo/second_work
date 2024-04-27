@@ -5,18 +5,19 @@ public abstract class Entity {
     protected double weight;
     protected int speed;
     protected double mealKg;
-    protected int maxQtyOnCell;
+    protected int maxQuantityOnCell;
     protected boolean alive = true;
     protected int countOfHunger = 0;
 
-    protected Entity(double weight, int speed, double meal, int maxQtyOnCell) {
+    protected Entity(double weight, int speed, double meal, int maxQuantityOnCell) {
         this.weight = weight;
         this.speed = speed;
         this.mealKg = meal;
-        this.maxQtyOnCell = maxQtyOnCell;
+        this.maxQuantityOnCell = maxQuantityOnCell;
     }
 
     protected Entity() {
+
     }
 
     public boolean isAlive() {
@@ -39,8 +40,8 @@ public abstract class Entity {
         return mealKg;
     }
 
-    public int getMaxQtyOnCell() {
-        return maxQtyOnCell;
+    public int getMaxQuantityOnCell() {
+        return maxQuantityOnCell;
     }
 
     public void setMealKg(double mealKg) {
@@ -61,7 +62,7 @@ public abstract class Entity {
         if (o == null || getClass() != o.getClass()) return false;
 
         Entity entity = (Entity) o;
-        return Double.compare(weight, entity.weight) == 0 && speed == entity.speed && Double.compare(mealKg, entity.mealKg) == 0 && maxQtyOnCell == entity.maxQtyOnCell;
+        return Double.compare(weight, entity.weight) == 0 && speed == entity.speed && Double.compare(mealKg, entity.mealKg) == 0 && maxQuantityOnCell == entity.maxQuantityOnCell;
     }
 
     @Override
@@ -69,7 +70,7 @@ public abstract class Entity {
         int result = Double.hashCode(weight);
         result = 31 * result + speed;
         result = 31 * result + Double.hashCode(mealKg);
-        result = 31 * result + maxQtyOnCell;
+        result = 31 * result + maxQuantityOnCell;
         return result;
     }
 }

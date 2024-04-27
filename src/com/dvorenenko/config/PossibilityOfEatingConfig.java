@@ -14,36 +14,35 @@ import java.util.Objects;
 
 public class PossibilityOfEatingConfig {
 
-    private Map<Map<Entity, Entity>, Long> possibilityOfEatingConfig;
+    private Map<Map<Entity, Entity>, Long> possibilityOfEatingConfig = new HashMap<>();
 
     public PossibilityOfEatingConfig(ObjectMapper objectMapper, String pathToJson, MakeClassByReflection makeClassByReflection){
         File file = new File(pathToJson);
-        this.possibilityOfEatingConfig = getPossibilityOfEatingConfigToMap(objectMapper, file, makeClassByReflection);
+        fillPossibilityOfEatingConfigToMap(objectMapper, file, makeClassByReflection);
     }
 
-    public Map<Map<Entity, Entity>, Long> getPossibilityOfEatingConfigToMap() {
+    public Map<Map<Entity, Entity>, Long> fillPossibilityOfEatingConfigToMap() {
         return possibilityOfEatingConfig;
     }
 
-    private Map<Map<Entity, Entity>, Long> getPossibilityOfEatingConfigToMap(ObjectMapper objectMapper, File file, MakeClassByReflection makeClassByReflection) {
+    private void fillPossibilityOfEatingConfigToMap(ObjectMapper objectMapper, File file, MakeClassByReflection makeClassByReflection) {
         PossibilityOfEating[] possibilityOfEating = extractedPossibility(objectMapper, file);
 
-        Map<Map<Entity, Entity>, Long> possibilityOfEatingConfig = new HashMap<>();
         Entity entityHunter = null;
         Entity entityHunted = null;
+
         for (PossibilityOfEating possibility : possibilityOfEating) {
             for (EntityType value : EntityType.values()) {
                 if (possibility.getFrom().equals(value.getType())) {
-                    entityHunter = makeClassByReflection.MakeClassByEntityType(value);
+                    entityHunter = makeClassByReflection.makeClassByEntityType(value);
                 } else if (possibility.getTo().equals(value.getType())) {
-                    entityHunted = makeClassByReflection.MakeClassByEntityType(value);
+                    entityHunted = makeClassByReflection.makeClassByEntityType(value);
                 }
             }
             Map<Entity, Entity> entity = new HashMap<>();
             entity.put(entityHunter, entityHunted);
-            possibilityOfEatingConfig.put(entity, possibility.getPercent());
+            this.possibilityOfEatingConfig.put(entity, possibility.getPercent());
         }
-        return possibilityOfEatingConfig;
     }
 
     private PossibilityOfEating[] extractedPossibility(ObjectMapper objectMapper, File file) {

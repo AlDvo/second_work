@@ -15,7 +15,8 @@ public class ChooseQtyDayService {
     public int getDay() {
         return day;
     }
-    private int choseDay(){
+
+    private int choseDay() {
         System.out.println(Constants.ENTER_QTY_DAYS);
         Scanner scan = new Scanner(System.in);
         return scan.nextInt();

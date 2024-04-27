@@ -13,7 +13,7 @@ public class DecreaseAnimalService {
 
     public Location decreaseAnimalOnLocation(Location location) {
         Map<FieldSizeConfig, List<Entity>> island = new HashMap<>();
-        for (Map.Entry<FieldSizeConfig, List<Entity>> listEntry : location.getIsland().entrySet()) {
+        for (var listEntry : location.getIsland().entrySet()) {
             island.put(listEntry.getKey(), new ArrayList<>());
             for (Entity entity : listEntry.getValue()) {
                 if (entity.isAlive()) {
