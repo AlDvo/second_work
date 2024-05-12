@@ -1,0 +1,1143 @@
+[
+  {
+    "from": "wolf",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "wolf",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "wolf",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "wolf",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "wolf",
+    "to": "horse",
+    "percent": 10
+  },
+  {
+    "from": "wolf",
+    "to": "deer",
+    "percent": 15
+  },
+  {
+    "from": "wolf",
+    "to": "rabbit",
+    "percent": 60
+  },
+  {
+    "from": "wolf",
+    "to": "mouse",
+    "percent": 80
+  },
+  {
+    "from": "wolf",
+    "to": "goat",
+    "percent": 60
+  },
+  {
+    "from": "wolf",
+    "to": "sheep",
+    "percent": 70
+  },
+  {
+    "from": "wolf",
+    "to": "boar",
+    "percent": 15
+  },
+  {
+    "from": "wolf",
+    "to": "buffalo",
+    "percent": 10
+  },
+  {
+    "from": "wolf",
+    "to": "duck",
+    "percent": 40
+  },
+  {
+    "from": "wolf",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "wolf",
+    "to": "grass",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "fox",
+    "percent": 15
+  },
+  {
+    "from": "boa",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "rabbit",
+    "percent": 20
+  },
+  {
+    "from": "boa",
+    "to": "mouse",
+    "percent": 40
+  },
+  {
+    "from": "boa",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "duck",
+    "percent": 10
+  },
+  {
+    "from": "boa",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "boa",
+    "to": "grass",
+    "percent": 0
+  },
+
+  {
+    "from": "fox",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "rabbit",
+    "percent": 70
+  },
+  {
+    "from": "fox",
+    "to": "mouse",
+    "percent": 90
+  },
+  {
+    "from": "fox",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "fox",
+    "to": "duck",
+    "percent": 60
+  },
+  {
+    "from": "fox",
+    "to": "caterpillar",
+    "percent": 40
+  },
+  {
+    "from": "fox",
+    "to": "grass",
+    "percent": 0
+  },
+
+  {
+    "from": "bear",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "bear",
+    "to": "boa",
+    "percent": 80
+  },
+  {
+    "from": "bear",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "bear",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "bear",
+    "to": "horse",
+    "percent": 40
+  },
+  {
+    "from": "bear",
+    "to": "deer",
+    "percent": 80
+  },
+  {
+    "from": "bear",
+    "to": "rabbit",
+    "percent": 80
+  },
+  {
+    "from": "bear",
+    "to": "mouse",
+    "percent": 90
+  },
+  {
+    "from": "bear",
+    "to": "goat",
+    "percent": 70
+  },
+  {
+    "from": "bear",
+    "to": "sheep",
+    "percent": 70
+  },
+  {
+    "from": "bear",
+    "to": "boar",
+    "percent": 50
+  },
+  {
+    "from": "bear",
+    "to": "buffalo",
+    "percent": 20
+  },
+  {
+    "from": "bear",
+    "to": "duck",
+    "percent": 10
+  },
+  {
+    "from": "bear",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "bear",
+    "to": "grass",
+    "percent": 0
+  },
+
+  {
+    "from": "eagle",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "fox",
+    "percent": 10
+  },
+  {
+    "from": "eagle",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "rabbit",
+    "percent": 90
+  },
+  {
+    "from": "eagle",
+    "to": "mouse",
+    "percent": 90
+  },
+  {
+    "from": "eagle",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "duck",
+    "percent": 80
+  },
+  {
+    "from": "eagle",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "eagle",
+    "to": "grass",
+    "percent": 0
+  },
+
+  {
+    "from": "horse",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "mouse",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "horse",
+    "to": "grass",
+    "percent": 100
+  },
+
+
+  {
+    "from": "deer",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "mouse",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "deer",
+    "to": "grass",
+    "percent": 100
+  },
+
+
+  {
+    "from": "rabbit",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "mouse",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "rabbit",
+    "to": "grass",
+    "percent": 100
+  },
+
+  {
+    "from": "mouse",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "mouse",
+    "to": "caterpillar",
+    "percent": 90
+  },
+  {
+    "from": "mouse",
+    "to": "grass",
+    "percent": 100
+  },
+
+
+  {
+    "from": "goat",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "mouse",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "goat",
+    "to": "grass",
+    "percent": 100
+  },
+
+  {
+    "from": "sheep",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "mouse",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "caterpillar",
+    "percent": 0
+  },
+  {
+    "from": "sheep",
+    "to": "grass",
+    "percent": 100
+  },
+
+  {
+    "from": "boar",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "mouse",
+    "percent": 50
+  },
+  {
+    "from": "boar",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "boar",
+    "to": "caterpillar",
+    "percent": 90
+  },
+  {
+    "from": "boar",
+    "to": "grass",
+    "percent": 100
+  },
+
+  {
+    "from": "buffalo",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "mouse",
+    "percent": 50
+  },
+  {
+    "from": "buffalo",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "buffalo",
+    "to": "caterpillar",
+    "percent": 90
+  },
+  {
+    "from": "buffalo",
+    "to": "grass",
+    "percent": 100
+  },
+
+  {
+    "from": "duck",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "mouse",
+    "percent": 50
+  },
+  {
+    "from": "duck",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "duck",
+    "to": "caterpillar",
+    "percent": 90
+  },
+  {
+    "from": "duck",
+    "to": "grass",
+    "percent": 100
+  },
+
+  {
+    "from": "caterpillar",
+    "to": "wolf",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "boa",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "fox",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "bear",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "eagle",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "horse",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "deer",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "rabbit",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "mouse",
+    "percent": 50
+  },
+  {
+    "from": "caterpillar",
+    "to": "goat",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "sheep",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "boar",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "buffalo",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "duck",
+    "percent": 0
+  },
+  {
+    "from": "caterpillar",
+    "to": "grass",
+    "percent": 100
+  }
+]
